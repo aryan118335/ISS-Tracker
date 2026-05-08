@@ -75,7 +75,7 @@ export function useISS(autoRefresh) {
     setLoading(true);
     try {
       // 1. Fetch ISS Position
-      const issRes = await fetch('http://api.open-notify.org/iss-now.json');
+      const issRes = await fetch('https://api.open-notify.org/iss-now.json');
       const issData = await issRes.json();
       const newPos = {
         lat: parseFloat(issData.iss_position.latitude),
@@ -83,7 +83,7 @@ export function useISS(autoRefresh) {
       };
 
       // 2. Fetch Astronauts
-      const astroRes = await fetch('http://api.open-notify.org/astros.json');
+      const astroRes = await fetch('https://api.open-notify.org/astros.json');
       const astroData = await astroRes.json();
       setAstronauts(astroData.number);
 
